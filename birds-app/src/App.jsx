@@ -7,7 +7,7 @@ import Quiz from './pages/Quiz'
 function App() {
 
   return (
-    <>
+    <div className="min-h-screen bg-amber-50">
       <Navbar />
 
       <Routes>
@@ -15,7 +15,7 @@ function App() {
         <Route path="/learn" element={<Learn />} />
         <Route path="/quiz" element={<Quiz />} />
       </Routes>
-    </>
+    </div>
   )
 }
 
