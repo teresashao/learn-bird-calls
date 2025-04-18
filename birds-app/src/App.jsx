@@ -2,7 +2,10 @@ import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Learn from './pages/Learn'
-import Quiz from './pages/Quiz'
+import QuizStart from "./pages/QuizStart";
+import Quiz from "./pages/Quiz";
+import QuizResults from "./pages/QuizResults";
+
 
 function App() {
 
@@ -13,7 +16,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/learn" element={<Learn />} />
+        <Route path="/quizstart" element={<QuizStart />} />
         <Route path="/quiz" element={<Quiz />} />
+        <Route path="/results" element={<QuizResults />} />
       </Routes>
     </div>
   )
