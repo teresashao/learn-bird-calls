@@ -34,10 +34,10 @@ const Quiz = () => {
   };
 
   const getButtonStyle = (option) => {
-    if (!showFeedback) return "bg-blue-500 hover:bg-blue-600";
+    if (!showFeedback) return "hover:bg-green-500";
     if (option.name === question.correctAnswer) return "bg-green-500";
     if (option.name === selectedAnswer) return "bg-red-500";
-    return "bg-gray-300";
+    return "text-gray-500";
   };
 
   return (
@@ -52,41 +52,45 @@ const Quiz = () => {
 
       <audio controls src={question.audio} className="mb-6 mx-auto" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+      <div className="flex flex-wrap justify-center gap-10 mb-6 ">
         {birdOptions.map((option) => (
           <button
             key={option.name}
             onClick={() => handleAnswerClick(option.name)}
             disabled={showFeedback}
-            className={`text-white py-3 px-2 rounded transition-all flex flex-col items-center ${getButtonStyle(
+            className={`py-3 px-2 rounded transition-all flex flex-col items-center ${getButtonStyle(
               option
             )}`}
           >
             <img
               src={option.image}
               alt={option.name}
-              className="w-24 h-20 object-cover mb-2 rounded"
+              className="w-29 h-25 object-cover mb-2 rounded"
             />
             <span>{option.name}</span>
           </button>
         ))}
       </div>
 
-      {showFeedback && (
-        <div className="mt-4">
-          <p className="text-lg font-semibold mb-2">
-            {selectedAnswer === question.correctAnswer
-              ? "✅ Correct!"
-              : `❌ Oops! The correct answer was ${question.correctAnswer}.`}
-          </p>
-          <button
-            onClick={handleNext}
-            className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded mt-2"
-          >
-            Next →
-          </button>
-        </div>
-      )}
+      <div className="mt-4">
+  <button
+    onClick={handleNext}
+    disabled={!showFeedback}
+    className={`px-6 py-2 rounded mt-2 transition 
+      ${showFeedback ? "bg-green-800 hover:bg-green-600 text-white" : "bg-gray-400 text-gray-200 cursor-not-allowed"}`}
+    >
+        Next →
+    </button>
+    {showFeedback && (
+    <p className="text-lg font-semibold mb-2">
+        <br></br>
+      {selectedAnswer === question.correctAnswer
+        ? "✅ Correct!"
+        : `❌ Oops! The correct answer was ${question.correctAnswer}.`}
+    </p>
+  )}
+</div>
+
     </div>
   );
 };
