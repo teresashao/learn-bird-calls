@@ -1,31 +1,38 @@
 const birdOptions = [
   {
-    name: "House Sparrow",
-    image: "/sparrow.png",
-  },
-  {
     name: "Blue Jay",
-    image: "/blue_jay.png",
+    image: "/blue_jay2.jpg",
+    scientific_name: "Cyanocitta cristata",
   },
   {
     name: "Northern Cardinal",
-    image: "/cardinal2.png",
+    image: "/northern_cardinal2.jpg",
+    scientific_name: "Cardinalis cardinalis",
   },
   {
-    name: "American Crow",
-    image: "/crow.png",
-  },
-  {
-    name: "Mourning Dove",
-    image: "/mourning_dove.webp",
+    name: "House Sparrow",
+    image: "/sparrow2.jpg",
+    scientific_name: "Passer domesticus",
   },
   {
     name: "Rock Pigeon",
-    image: "/pigeon2.png",
+    image: "/pigeon2.jpg",
+    scientific_name: "Columba livia",
+  },
+  {
+    name: "American Crow",
+    image: "/crow2.jpg",
+    scientific_name: "Corvus brachyrhynchos",
   },
   {
     name: "American Robin",
-    image: "/robin.webp",
+    image: "/robin2.jpg",
+    scientific_name: "Turdus migratorius",
+  },
+  {
+    name: "Mourning Dove",
+    image: "/mourning_dove2.jpg",
+    scientific_name: "Zenaida macroura",
   },
 ];
   
