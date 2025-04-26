@@ -51,7 +51,7 @@ const Quiz = () => {
         <p className="text-gray-600 text-md mb-2">Not ready yet?</p>
         <button
           onClick={() => navigate("/learn")}
-          className="px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded transition cursor-pointer"
+          className="w-40 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-sm transition cursor-pointer"
           >
           Restart Learn
         </button>
@@ -86,7 +86,7 @@ const Quiz = () => {
           onClick={handleNext}
           disabled={!showFeedback}
           className={`px-4 py-2 rounded transition
-            ${showFeedback ? "bg-green-800 hover:bg-green-600 text-white cursor-pointer" : "bg-gray-400 text-gray-200 cursor-not-allowed"}`}
+            ${showFeedback ? "bg-grass hover:bg-lightgrass text-white cursor-pointer" : "bg-gray-400 text-gray-200 cursor-not-allowed"}`}
           >
               Next →
           </button>

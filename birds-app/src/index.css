@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+@theme {
+    --color-grass: #6aa84fff;
+    --color-lightgrass: #93c47dff;
+  }
