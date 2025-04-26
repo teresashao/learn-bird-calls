@@ -67,7 +67,7 @@ const Quiz = () => {
         </h2>
         <br></br>
 
-        <audio controls src={question.audio} className="mx-auto mb-1" />
+        <audio controls src={question.audio} className="mx-auto mb-1 w-130" />
 
         {showFeedback && (
           <p className="text-lg font-semibold text-center">
