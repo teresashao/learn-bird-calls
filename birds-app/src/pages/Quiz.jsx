@@ -39,8 +39,6 @@ const Quiz = () => {
     if (option.name === selectedAnswer) return "bg-red-100 border-red-500 ring-2 ring-red-500";
     return "bg-gray-100 border-gray-300 text-gray-500";
   };
-  
-  
 
   return (
     <div>
@@ -51,7 +49,7 @@ const Quiz = () => {
         <p className="text-gray-600 text-md mb-2">Not ready yet?</p>
         <button
           onClick={() => navigate("/learn")}
-          className="w-40 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-sm transition cursor-pointer"
+          className="w-40 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-sm transition cursor-pointer border border-gray-300 "
           >
           Restart Learn
         </button>
@@ -85,10 +83,10 @@ const Quiz = () => {
         <button
           onClick={handleNext}
           disabled={!showFeedback}
-          className={`px-4 py-2 rounded transition
+          className={`px-4 py-2 rounded transition font-semibold text-xl w-30 text-shadow-sm
             ${showFeedback ? "bg-grass hover:bg-lightgrass text-white cursor-pointer" : "bg-gray-400 text-gray-200 cursor-not-allowed"}`}
           >
-              Next →
+              Next
           </button>
           
       </div>
