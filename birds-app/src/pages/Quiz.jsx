@@ -34,9 +34,9 @@ const Quiz = () => {
   };
 
   const getButtonStyle = (option) => {
-    if (!showFeedback) return "bg-white hover:border-gray-950";
-    if (option.name === question.correctAnswer) return "bg-green-100 border-green-500 ring-2 ring-green-500";
-    if (option.name === selectedAnswer) return "bg-red-100 border-red-500 ring-2 ring-red-500";
+    if (!showFeedback) return "bg-white hover:border-gray-400";
+    if (option.name === question.correctAnswer) return "bg-green-100 border-green-500 ring ring-green-500";
+    if (option.name === selectedAnswer) return "bg-red-100 border-red-500 ring ring-red-500";
     return "bg-gray-100 border-gray-300 text-gray-500";
   };
 
@@ -46,10 +46,10 @@ const Quiz = () => {
       
       {/* Left Column */}
       <div className="m-6 mt-29 text-center">
-        <p className="text-gray-600 text-md mb-2">Not ready yet?</p>
+        <p className="text-gray-500 text-md mb-2">Not ready yet?</p>
         <button
           onClick={() => navigate("/learn")}
-          className="w-40 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-sm transition cursor-pointer border border-gray-300 "
+          className="hover:scale-105 shadow-lg border border-gray-200 w-40 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-500 rounded-sm transition cursor-pointer"
           >
           Restart Learn
         </button>
@@ -83,8 +83,8 @@ const Quiz = () => {
         <button
           onClick={handleNext}
           disabled={!showFeedback}
-          className={`px-4 py-2 rounded transition font-semibold text-xl w-30 text-shadow-sm
-            ${showFeedback ? "bg-grass hover:bg-lightgrass text-white cursor-pointer" : "bg-gray-400 text-gray-200 cursor-not-allowed"}`}
+          className={`px-4 py-2 rounded transition font-semibold text-xl w-30 text-shadow-sm shadow-lg
+            ${showFeedback ? "bg-grass hover:bg-lightgrass text-white cursor-pointer hover:scale-105" : "bg-gray-400 text-gray-200 cursor-not-allowed"}`}
           >
               Next
           </button>

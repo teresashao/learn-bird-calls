@@ -29,7 +29,7 @@ const BirdButton = ({ image, audio, top, left}) => {
       <img 
         src={image} 
         alt="Bird" 
-        className="w-auto h-30 object-cover shadow-lg transform transition" 
+        className="w-auto h-30 object-cover transform transition hover:scale-105" 
       />
       <audio ref={audioRef} src={audio} />
     </div>

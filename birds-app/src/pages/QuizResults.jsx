@@ -15,7 +15,7 @@ const QuizResults = () => {
         <img src={crow} alt="crow" className="w-60 h-auto" />
       </div>
 
-      <div className="mb-20 max-w-5xl w-full h-70 flex flex-col md:flex-row items-center justify-between bg-gray-100 p-8 rounded-xs p-15 inset-shadow-sm inset-shadow-gray-400">
+      <div className="mb-20 max-w-5xl w-full h-70 flex flex-col md:flex-row items-center justify-between bg-gray-100 p-8 rounded-xs p-15 shadow-lg border border-gray-200">
         {/* Text Section */}
         <div className="text-center md:text-left">
           <h1 className="text-4xl font-bold mb-4">Quiz Complete!</h1>
@@ -26,14 +26,14 @@ const QuizResults = () => {
         <div className="mt-6 md:mt-0 flex flex-col items-center">
           <div className="m-2">
           <Link to="/quizstart">
-            <button className="text-xl bg-grass hover:bg-lightgrass text-white font-semibold py-2 px-6 text-shadow-sm rounded-sm cursor-pointer">
+            <button className="hover:scale-105 text-xl bg-grass hover:bg-lightgrass text-white font-semibold py-2 px-6 text-shadow-sm rounded-sm cursor-pointer">
               Play Again
             </button>
           </Link>
         </div>
         <div className="m-2">
         <Link to="/learn">
-            <button className="text-xl bg-grass hover:bg-lightgrass text-white font-semibold py-2 px-6 text-shadow-sm rounded-sm cursor-pointer">
+            <button className="hover:scale-105 text-xl bg-grass hover:bg-lightgrass text-white font-semibold py-2 px-6 text-shadow-sm rounded-sm cursor-pointer">
              Restart Learning
             </button>
           </Link>
