@@ -15,7 +15,7 @@ const QuizResults = () => {
         <img src={crow} alt="crow" className="w-60 h-auto" />
       </div>
 
-      <div className="mb-20 max-w-5xl w-full h-70 flex flex-col md:flex-row items-center justify-between bg-gray-100 p-8 rounded-xs p-15 shadow-lg border border-gray-200">
+      <div className="mb-20 max-w-5xl w-full h-70 flex flex-col md:flex-row items-center justify-between bg-gray-100 p-8 rounded-xs p-15 shadow-xl border border-gray-200">
         {/* Text Section */}
         <div className="text-center md:text-left">
           <h1 className="text-4xl font-bold mb-4">Quiz Complete!</h1>
