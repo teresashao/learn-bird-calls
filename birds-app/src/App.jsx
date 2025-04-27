@@ -10,7 +10,7 @@ import QuizResults from "./pages/QuizResults";
 function App() {
 
   return (
-    <div className="min-h-screen bg-amber-50">
+    <div className="min-h-screen">
       <Navbar />
 
       <Routes>

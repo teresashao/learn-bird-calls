@@ -1,7 +1,7 @@
 const BirdCard = ({ image, description, funFact, closeCard, name }) => {
 	return (
 		<div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm">
-			<div className="relative w-[90%] h-[90%] bg-[#1a3d2f] rounded-lg p-6 shadow-lg text-white flex flex-col">
+			<div className="relative w-[60%] h-[60%] bg-[#1a3d2f] rounded-lg p-6 shadow-lg text-white flex flex-col">
 				{/* X button */}
 				<button
 					onClick={closeCard}
