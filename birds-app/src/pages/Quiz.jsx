@@ -36,33 +36,35 @@ const Quiz = () => {
   };
 
   const getButtonStyle = (option) => {
-    if (!showFeedback) return "bg-white hover:border-gray-400";
-    if (option.name === question.correctAnswer) return "bg-green-100 border-green-500 ring ring-green-500";
-    if (option.name === selectedAnswer) return "bg-red-100 border-red-500 ring ring-red-500";
-    return "bg-gray-100 border-gray-300 text-gray-500";
+    if (!showFeedback) return "bg-stone-50 hover:border-stone-300 hover:scale-105 duration-300 hover:shadow-xl text-stone-700";
+    if (option.name === question.correctAnswer) return "bg-green-100 border-green-500 ring-2 ring-green-500 scale-105";
+    if (option.name === selectedAnswer) return "bg-red-100 border-red-500 ring-2 ring-red-500 scale-105";
+    return "bg-stone-100 border-stone-300 text-stone-500";
   };
 
   return (
-    <div>
+    <div className=" bg-cover bg-center bg-no-repeat"
+    style={{ backgroundImage: "url('/background2.png')" }}
+    >
 
-    <div className="absolute top-27 right-21 text-center w-90">
+    <div className="absolute top-27 right-32 text-center w-90">
       {showFeedback && (
-            <p className="text-lg font-semibold text-center">
+            <p className="text-lg font-bold text-center font-nunito">
                 <br></br>
               {selectedAnswer === question.correctAnswer
                 ? "✅ Correct!"
-                : `❌ The correct answer was ${question.correctAnswer}.`}
+                : `❌ Oops! The correct answer was ${question.correctAnswer}`}
             </p>
           )}
     </div>
 
-    <div className="m-6 text-center absolute right-45 top-45">
+    <div className="m-6 text-center absolute right-55 top-48">
 
         <button
           onClick={handleNext}
           disabled={!showFeedback}
-          className={`px-4 py-3 rounded transition font-semibold text-xl w-30 text-shadow-sm shadow-lg
-            ${showFeedback ? "bg-grass hover:bg-lightgrass text-white cursor-pointer hover:scale-105" : "bg-gray-400 text-gray-200 cursor-not-allowed"}`}
+          className={`font-joti px-6 py-3 rounded-3xl transition font-semibold text-2xl w-30 text-shadow-sm shadow-lg duration-300
+            ${showFeedback ? "bg-green-800 hover:bg-green-700 text-white cursor-pointer hover:scale-105" : "bg-stone-400 text-stone-200 cursor-not-allowed"}`}
           >
               Next
           </button>
@@ -77,10 +79,10 @@ const Quiz = () => {
       
       {/* Center Column */}
       <div className="p-5 mx-auto text-center rounded-xl max-w-4xl w-full">
-        <h1 className="text-3xl font-bold m-4">
+        <h1 className="font-joti text-5xl font-bold m-4">
           Question {currentQuestion + 1} of {quizData.length}
         </h1>
-        <h2 className="text-xl">
+        <h2 className="text-2xl font-nunito font-semibold m-2">
           Which bird makes this sound?
         </h2>
         <br></br>
@@ -104,7 +106,7 @@ const Quiz = () => {
               key={option.name}
               onClick={() => handleAnswerClick(option.name)}
               disabled={showFeedback}
-              className={`w-60 p-0 border cursor-pointer border-gray-300 rounded-sm shadow-sm hover:shadow-xl transition-transform transform hover:scale-105 flex flex-col text-center overflow-hidden ${getButtonStyle(option)}`}
+              className={`w-60 p-0 cursor-pointer rounded-4xl shadow-sm transition-transform transform  flex flex-col text-center overflow-hidden ${getButtonStyle(option)}`}
             >
               <img
                 src={option.image}
@@ -112,20 +114,20 @@ const Quiz = () => {
                 className="w-full h-40 object-cover rounded-sm"
               />
               <div className="p-3 flex flex-col items-center space-y-1">
-                <div className="text-lg font-semibold">{option.name}</div>
-                <div className="italic text-sm text-gray-600">{option.scientific_name}</div>
+                <div className="text-lg font-semibold font-joti">{option.name}</div>
+                <div className="italic text-sm font-nunito font-semibold">{option.scientific_name}</div>
             </div>
 
           </button>
           ))}
         </div>
 
-      <div className="absolute bottom-28 left-0 m-4 text-center w-70">
+      <div className="absolute bottom-25 left-0 m-4 text-center w-70">
         <div>
-          <p className="text-gray-500 text-md mb-2">Not sure?</p>
+          <p className="text-stone-600 text-md font-semibold mb-2 font-nunito">Not sure?</p>
             <button
               onClick={() => navigate("/learn")}
-              className="mb-1 hover:scale-105 shadow-sm border border-gray-200 w-40 px-4 py-2 bg-white hover:bg-gray-100 text-gray-600 rounded-sm transition cursor-pointer"
+              className="font-joti mb-2 hover:scale-105 duration-300 shadow-md border border-stone-50 w-40 px-6 py-2 bg-stone-50 hover:bg-stone-100 text-stone-600 rounded-3xl transition cursor-pointer"
               >
               Restart Learn
             </button>
@@ -133,16 +135,16 @@ const Quiz = () => {
           <div>
             <button
                 onClick={() => setShowHint(true)}
-                className="hover:scale-105 shadow-sm border border-gray-200 w-40 px-4 py-2 bg-white hover:bg-gray-100 text-gray-600 rounded-sm transition cursor-pointer"
+                className="font-joti hover:scale-105 duration-300 shadow-md border border-stone-50 w-40 px-4 py-2 bg-stone-50 hover:bg-stone-100 text-stone-600 rounded-3xl transition cursor-pointer"
               >
                 Show Hint
               </button>
           </div>
       </div>
 
-      <div className="absolute left-3 bottom-12 text-center w-65 m-4">
+      <div className="absolute left-3 bottom-10 text-center w-65 m-4">
         {showHint && (
-          <p className="mt-4 text-gray-700 italic max-w-xs">{question.hint}</p>
+          <p className="font-nunito mt-4 text-stone-600 font-semibold italic max-w-xs">{question.hint}</p>
         )}
       </div>
 
