@@ -1,16 +1,30 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { quizData, birdOptions } from "../data/quizData";
+import { useEffect } from "react";
 
 const Quiz = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [showFeedback, setShowFeedback] = useState(false);
-  const [score, setScore] = useState(0);
+  const savedProgress = JSON.parse(localStorage.getItem("quizProgress"));
+
+  const [currentQuestion, setCurrentQuestion] = useState(savedProgress?.currentQuestion || 0);
+  const [selectedAnswer, setSelectedAnswer] = useState(savedProgress?.selectedAnswer || null);
+  const [showFeedback, setShowFeedback] = useState(savedProgress?.showFeedback || false);
+  const [score, setScore] = useState(savedProgress?.score || 0);
   const [showHint, setShowHint] = useState(false);
+
 
   const navigate = useNavigate();
   const question = quizData[currentQuestion];
+  
+  useEffect(() => {
+    localStorage.setItem("quizProgress", JSON.stringify({
+      currentQuestion,
+      score,
+      selectedAnswer,
+      showFeedback,
+    }));
+  }, [currentQuestion, score, selectedAnswer, showFeedback]);
+  
 
   const handleAnswerClick = (answer) => {
     if (showFeedback) return; // prevent clicking multiple times
@@ -19,7 +33,7 @@ const Quiz = () => {
     setShowFeedback(true);
 
     if (answer === question.correctAnswer) {
-      setScore((prev) => prev + 1);
+      setScore((prev) => Math.min(prev + 1, 7));
     }
   };
 
@@ -31,6 +45,7 @@ const Quiz = () => {
       setShowFeedback(false);
       setShowHint(false);
     } else {
+      localStorage.removeItem("quizProgress");
       navigate("/results", { state: { score } });
     }
   };
