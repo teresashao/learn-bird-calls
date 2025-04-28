@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
 
 import rockPigeon from "/frontpigeon.png";
@@ -6,6 +7,20 @@ import crow from "/crowflying.webp";
 const QuizResults = () => {
   const location = useLocation();
   const score = location.state?.score ?? 0;
+
+  useEffect(() => {
+    // Send the score to Flask backend
+    fetch("http://localhost:5001/log_score", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ score }),
+    })
+    .then(response => response.json())
+    .then(data => console.log("Score logged:", data))
+    .catch(error => console.error("Error logging score:", error));
+  }, [score]);
 
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center px-5 bg-cover bg-center bg-no-repeat"
