@@ -7,3 +7,21 @@
   --font-luckiest: "Luckiest Guy", "cursive";
   --font-joti: "Joti One", "serif";
 }
+
+@layer utilities {
+  @keyframes pulse-white {
+
+    0%,
+    100% {
+      filter: brightness(1);
+    }
+
+    50% {
+      filter: brightness(1.3);
+    }
+  }
+
+  .animate-pulse-white {
+    animation: pulse-white 2s infinite;
+  }
+}

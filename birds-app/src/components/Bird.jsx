@@ -1,7 +1,7 @@
 import { useState } from "react"
 import BirdCard from "./BirdCard"
 
-const Bird = ({ name, image, description = "sample description", funFact = "sample fun fact", style }) => {
+const Bird = ({ name, image, image2, description = "sample description", funFact = "sample fun fact", style }) => {
 	const [showCard, setShowCard] = useState(false)
 
 
@@ -10,7 +10,7 @@ const Bird = ({ name, image, description = "sample description", funFact = "samp
 			<img
 				src={image}
 				alt={name}
-				className={style}
+				className={`${style} animate-pulse-white`}
 				onClick={() => setShowCard(true)}
 			/>
 
@@ -18,7 +18,8 @@ const Bird = ({ name, image, description = "sample description", funFact = "samp
 				<div className="">
 					<BirdCard
 						name={name}
-						image={image}
+						image1={image}
+						image2={image2}
 						description={description}
 						funFact={funFact}
 						closeCard={() => setShowCard(false)} />
