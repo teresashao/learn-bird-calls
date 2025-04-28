@@ -47,13 +47,13 @@ const Quiz = () => {
     style={{ backgroundImage: "url('/background2.png')" }}
     >
 
-    <div className="absolute top-27 right-32 text-center w-90">
+    <div className="absolute top-35 right-32 text-center w-90">
       {showFeedback && (
-            <p className="text-lg font-bold text-center font-nunito">
+            <p className="text-lg font-bold text-center font-nunito text-stone-800">
                 <br></br>
               {selectedAnswer === question.correctAnswer
                 ? "✅ Correct!"
-                : `❌ Oops! The correct answer was ${question.correctAnswer}`}
+                : `❌ The answer was ${question.correctAnswer}`}
             </p>
           )}
     </div>
@@ -87,7 +87,7 @@ const Quiz = () => {
         </h2>
         <br></br>
 
-        <audio controls src={question.audio} className="mx-auto mb-1 w-130" />
+        <audio controls src={question.audio} className="mx-auto w-130" />
 
     
       </div>
@@ -122,12 +122,12 @@ const Quiz = () => {
           ))}
         </div>
 
-      <div className="absolute bottom-25 left-0 m-4 text-center w-70">
+      <div className="absolute bottom-22 left-0 m-4 text-center w-70">
         <div>
-          <p className="text-stone-600 text-md font-semibold mb-2 font-nunito">Not sure?</p>
+          <p className="text-stone-600 text-md font-bold mb-2 font-nunito text-lg">Not sure?</p>
             <button
               onClick={() => navigate("/learn")}
-              className="font-joti mb-2 hover:scale-105 duration-300 shadow-md border border-stone-50 w-40 px-6 py-2 bg-stone-50 hover:bg-stone-100 text-stone-600 rounded-3xl transition cursor-pointer"
+              className="text-md font-joti mb-2 hover:scale-105 duration-300 shadow-md border border-stone-50 w-40 px-6 py-3 bg-stone-50 hover:bg-stone-100 text-stone-600 rounded-3xl transition cursor-pointer"
               >
               Restart Learn
             </button>
@@ -135,16 +135,16 @@ const Quiz = () => {
           <div>
             <button
                 onClick={() => setShowHint(true)}
-                className="font-joti hover:scale-105 duration-300 shadow-md border border-stone-50 w-40 px-4 py-2 bg-stone-50 hover:bg-stone-100 text-stone-600 rounded-3xl transition cursor-pointer"
+                className="text-md font-joti hover:scale-105 duration-300 shadow-md border border-stone-50 w-40 px-4 py-3 bg-stone-50 hover:bg-stone-100 text-stone-600 rounded-3xl transition cursor-pointer"
               >
                 Show Hint
               </button>
           </div>
       </div>
 
-      <div className="absolute left-3 bottom-10 text-center w-65 m-4">
+      <div className="absolute left-3 bottom-4 text-center w-65 m-4">
         {showHint && (
-          <p className="font-nunito mt-4 text-stone-600 font-semibold italic max-w-xs">{question.hint}</p>
+          <p className="font-nunito text-stone-600 font-semibold italic max-w-xs text-lg">{question.hint}</p>
         )}
       </div>
 
