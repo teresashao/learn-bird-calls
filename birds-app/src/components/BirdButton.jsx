@@ -25,7 +25,7 @@ const BirdButton = ({ image, audio, top, left, name }) => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       style={{ position: 'absolute', top, left, transform: "translate(-50%, -50%)" }}
-      className="cursor-pointer flex flex-col items-center group"
+      className="cursor-pointer flex flex-col items-center group absolute"
     >
       {/* Show bird name above image when hovered */}
       {hovered && (
