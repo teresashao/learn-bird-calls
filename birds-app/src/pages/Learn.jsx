@@ -51,7 +51,7 @@ const Learn = () => (
 		<Bird
 			name="House Sparrow"
 			image="/sparrow.png"
-			style="absolute top-100 left-90 h-[20%] w-auto"
+			style="absolute top-100 left-1/6 h-[20%] w-auto"
 		/>
 
 		<Bird
