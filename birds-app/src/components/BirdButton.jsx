@@ -1,36 +1,46 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 let currentlyPlayingAudio = null; 
 
-const BirdButton = ({ image, audio, top, left}) => {
+const BirdButton = ({ image, audio, top, left, name }) => {
   const audioRef = useRef(null);
+  const [hovered, setHovered] = useState(false);
 
   const handleClick = () => {
-    // If another audio is playing, pause it
     if (currentlyPlayingAudio && currentlyPlayingAudio !== audioRef.current) {
       currentlyPlayingAudio.pause();
       currentlyPlayingAudio.currentTime = 0;
     }
 
-    // Play the clicked audio
     if (audioRef.current) {
       audioRef.current.currentTime = 0;
       audioRef.current.play();
-      currentlyPlayingAudio = audioRef.current; // Update the currently playing
+      currentlyPlayingAudio = audioRef.current;
     }
   };
 
   return (
     <div 
       onClick={handleClick}
-      style={{ position: 'absolute', top, left }}
-      className="cursor-pointer"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{ position: 'absolute', top, left, transform: "translate(-50%, -50%)" }}
+      className="cursor-pointer flex flex-col items-center group"
     >
+      {/* Show bird name above image when hovered */}
+      {hovered && (
+        <div className="font-nunito text-center mb-1 px-2 py-1 rounded-xl bg-green-800 text-white text-sm font-semibold shadow-md">
+          {name}
+        </div>
+      )}
+
+      {/* Bird Image */}
       <img 
         src={image} 
-        alt="Bird" 
-        className="w-auto h-30 object-cover transform transition hover:scale-105" 
+        alt={name} 
+        className="w-auto h-30 object-cover transform transition hover:scale-110 duration-400" 
       />
+      
       <audio ref={audioRef} src={audio} />
     </div>
   );
