@@ -10,7 +10,7 @@ const QuizStart = () => {
     style={{ backgroundImage: "url('/background2_flipped.png')" }}>
         <div className="flex flex-col md:flex-row min-h-screen items-center justify-center">
         {/* Left side*/}
-        <div className="md:w-1/2 flex flex-col  items-center text-center p-8 mb-15">
+        <div className="md:w-1/2 flex flex-col  items-center text-center p-8">
             <div>
               
               <div className="mt-3 bg-stone-50 py-12 px-8 shadow-xl border border-stone-50 rounded-4xl">
@@ -25,7 +25,7 @@ const QuizStart = () => {
                 </Link>
               </div>
               
-          <p className="mt-8 mb-3 text-xl text-stone-600 font-nunito font-bold">Not Ready?</p>
+          <p className="mt-15 mb-3 text-xl text-stone-600 font-nunito font-bold">Not Ready?</p>
           <Link to="/learn">
                 <button className="font-joti hover:scale-105 duration-300 shadow-md border border-stone-50 w-60 text-lg bg-stone-50 hover:bg-stone-100 text-stone-600 py-3 px-6 rounded-3xl cursor-pointer">
                   Restart Learning
