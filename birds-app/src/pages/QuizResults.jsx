@@ -23,7 +23,7 @@ const QuizResults = () => {
   }, [score]);
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center px-5 bg-cover bg-center bg-no-repeat"
+    <div className="min-h-screen flex flex-col items-center justify-center px-5 bg-cover bg-center bg-no-repeat"
     style={{ backgroundImage: "url('/background1.png')" }}
     >
 
@@ -32,7 +32,9 @@ const QuizResults = () => {
         <img src={crow} alt="crow" className="w-60 h-auto" />
       </div>
 
-      <div className="mb-20 max-w-5xl w-full h-70 flex flex-col md:flex-row items-center justify-between bg-stone-50 p-8 rounded-3xl p-15 shadow-lg border border-stone-50">
+      
+
+      <div className="relative mb- max-w-5xl w-full h-auto flex flex-col md:flex-row items-center justify-between bg-stone-50 p-8 rounded-3xl p-15 shadow-lg border border-stone-50">
         {/* Text Section */}
         <div className="text-center md:text-left">
           <h1 className="text-5xl font-bold mb-4 font-joti">Quiz Complete!</h1>
@@ -40,7 +42,7 @@ const QuizResults = () => {
         </div>
 
         {/* Button Section */}
-        <div className="mt-6 md:mt-0 flex flex-col items-center">
+        <div className="z-1 mt-6 md:mt-0 flex flex-col items-center">
           <div className="m-2">
           <Link to="/quizstart">
             <button className="hover:scale-105 duration-300 font-joti text-xl bg-green-800 hover:bg-green-700 text-white font-semibold py-4 px-6 text-shadow-sm rounded-3xl cursor-pointer">
@@ -58,13 +60,17 @@ const QuizResults = () => {
         </div>
         
       </div>
-
-      <p className="text-3xl mb-6 text-gray-600 mt-2 font-nunito font-bold">Thank you for playing!</p>
-
-      {/* Bird Image  */}
-      <div className="absolute bottom-35 left-10">
-        <img src={rockPigeon} alt="pigeon" className="w-80 h-auto" />
+    <div className=" grid grid-cols-[1fr_1fr_1fr] gap-4 px-6">
+      <div className="relative">
+        {/* Bird Image  */}
+        <div className="absolute bottom-0  left-0 z-1">
+         <img src={rockPigeon} alt="pigeon" className="w-full h-full" />
+        </div>
       </div>
+      <div>
+        <p className="text-center mb-15 mt-20 text-3xl text-gray-600 font-nunito font-bold z-2">Thank you for playing!</p>
+      </div>
+    </div>
       
     </div>
   );
