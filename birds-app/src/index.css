@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  --color-grass: #6aa84fff;
-  --color-lightgrass: #93c47dff;
   --color-sky-blue: #B9D6E8;
   --font-luckiest: "Luckiest Guy", "cursive";
   --font-joti: "Joti One", "serif";

@@ -48,51 +48,58 @@ const QuizStart = () => {
             <BirdButton 
               image="/blue_jay.png" 
               audio="/audio/Jay_learn1.mp3" 
-              top="19%" 
+              top="26%" 
               left="48%"
+              name="Blue Jay"
             />
             <BirdButton 
               image="/crow.png" 
               audio="/audio/Crow_learn1.mp3" 
-              top="17%" 
-              left="78%"
+              top="23%" 
+              left="85%"
+              name="American Crow"
             />
             <BirdButton 
               image="/northern_cardinal.png" 
               audio="/audio/Cardinal_learn1.mp3" 
-              top="38%" 
-              left="70%"
+              top="45%" 
+              left="75%"
+              name="Northern Cardinal"
             />
             <BirdButton 
               image="/pigeon.png" 
               audio="/audio/Pigeon_learn1.mp3" 
-              top="67%" 
-              left="10%"
+              top="72%" 
+              left="15%"
+              name="Rock Pigeon"
             />
             <BirdButton 
               image="/robin.webp" 
               audio="/audio/Robin_learn1.mp3" 
-              top="35%" 
-              left="30%"
+              top="40%" 
+              left="35%"
+              name="American Robin"
             />
             <BirdButton 
               image="/sparrow_flipped.png" 
               audio="/audio/Sparrow_learn1.mp3" 
-              top="70%" 
-              left="65%"
+              top="75%" 
+              left="72%"
+              name="House Sparrow"
             />
             <BirdButton 
               image="/mourning_dove.webp" 
               audio="/audio/Dove_learn1.wav" 
-              top="25%" 
-              left="12%"
+              top="30%" 
+              left="20%"
+              name="Mourning Dove"
             />
             
             
             
           </div>
         <div>
-          <p className="absolute top-30 right-45 font-joti text-stone-600 mt-10 text-[25px] mb-13">Click a bird to review its call!</p>
+          <p className="absolute top-27 right-45 font-joti text-stone-600 mt-10 text-[25px] mb-13">Click a bird to review its call!</p>
         </div>
 
         </div>
