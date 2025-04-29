@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate} from "react-router-dom";
+import { useState } from 'react';
 
 import rockPigeon from "/frontpigeon.png";
 import crow from "/crowflying.webp";
@@ -7,6 +8,33 @@ import crow from "/crowflying.webp";
 const QuizResults = () => {
   const location = useLocation();
   const score = location.state?.score ?? 0;
+
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
+  const handleRestartClick = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('http://localhost:5001/start', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await response.json();
+      console.log(data);
+
+      if (data.message) {
+        navigate("/learn");
+      } else {
+        alert("Backend connection failed.");
+      }
+    } catch (error) {
+      console.error("Error connecting to backend:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     // Send the score to Flask backend
@@ -51,11 +79,12 @@ const QuizResults = () => {
           </Link>
         </div>
         <div className="m-2">
-        <Link to="/learn">
-            <button className="hover:scale-105 duration-300 font-joti text-xl bg-green-800 hover:bg-green-700 text-white font-semibold py-4 px-6 text-shadow-sm rounded-3xl cursor-pointer">
-             Restart Learning
-            </button>
-          </Link>
+          <button 
+            onClick={handleRestartClick}
+            disabled={loading}
+            className="hover:scale-105 duration-300 font-joti text-xl bg-green-800 hover:bg-green-700 text-white font-semibold py-4 px-6 text-shadow-sm rounded-3xl cursor-pointer">
+            Restart Learning
+          </button>
         </div>
         </div>
         

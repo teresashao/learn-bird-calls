@@ -1,10 +1,38 @@
 
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import BirdButton from "../components/BirdButton";
+import { useState } from 'react';
 
 
 const QuizStart = () => {
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
+
+    const handleRestartClick = async () => {
+        try {
+          setLoading(true);
+          const response = await fetch('http://localhost:5001/start', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+          const data = await response.json();
+          console.log(data);
+
+          if (data.message) {
+            navigate("/learn");
+          } else {
+            alert("Backend connection failed.");
+          }
+        } catch (error) {
+          console.error("Error connecting to backend:", error);
+        } finally {
+          setLoading(false);
+        }
+      };
+
   return (
     <div className=" bg-cover bg-center bg-no-repeat"
     style={{ backgroundImage: "url('/background2_flipped.png')" }}>
@@ -26,11 +54,12 @@ const QuizStart = () => {
               </div>
               
           <p className="mt-15 mb-3 text-xl text-stone-600 font-nunito font-bold">Not Ready?</p>
-          <Link to="/learn">
-                <button className="font-joti hover:scale-105 duration-300 shadow-md border border-stone-50 w-60 text-lg bg-stone-50 hover:bg-stone-100 text-stone-600 py-3 px-6 rounded-3xl cursor-pointer">
+              <button 
+              onClick={handleRestartClick}
+              disabled={loading}
+              className="font-joti hover:scale-105 duration-300 shadow-md border border-stone-50 w-60 text-lg bg-stone-50 hover:bg-stone-100 text-stone-600 py-3 px-6 rounded-3xl cursor-pointer">
                   Restart Learning
-                </button>
-              </Link>
+              </button>
             </div>
           </div>
 

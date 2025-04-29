@@ -15,6 +15,31 @@ const Quiz = () => {
 
   const navigate = useNavigate();
   const question = quizData[currentQuestion];
+  const [loading, setLoading] = useState(false);
+
+  const handleRestartClick = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('http://localhost:5001/start', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const data = await response.json();
+      console.log(data);
+
+      if (data.message) {
+        navigate("/learn");
+      } else {
+        alert("Backend connection failed.");
+      }
+    } catch (error) {
+      console.error("Error connecting to backend:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
   
   useEffect(() => {
     localStorage.setItem("quizProgress", JSON.stringify({
@@ -156,7 +181,8 @@ const Quiz = () => {
                 Show Hint
               </button>
               <button
-                onClick={() => navigate("/learn")}
+                onClick={handleRestartClick}
+                disabled={loading}
                 className="text-md font-joti hover:scale-105 duration-300 shadow-md w-40 px-6 py-3 bg-stone-50 hover:bg-stone-200 text-stone-600 rounded-3xl transition cursor-pointer"
               >
                 Restart Learn
