@@ -29,7 +29,7 @@ const BirdButton = ({ image, audio, top, left, name }) => {
     >
       {/* Show bird name above image when hovered */}
       {hovered && (
-        <div className="font-nunito text-center mb-1 px-2 py-1 rounded-xl bg-green-800 text-white text-sm font-semibold shadow-md">
+        <div className="font-joti text-center mb-1 px-2 py-1 rounded-3xl bg-green-800 text-white text-sm font-bold shadow-md">
           {name}
         </div>
       )}

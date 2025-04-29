@@ -71,14 +71,14 @@ const Learn = () => {
 			{allCompleted && (
 				<div className="absolute bottom-20 right-16 flex flex-col space-y-2 z-50">
 					<button
-						onClick={() => navigate("/quiz")}
-						className="font-joti bg-green-800 hover:bg-green-700 text-white py-2 px-6 rounded-2xl shadow-md text-lg transition duration-300"
+						onClick={() => navigate("/quizstart")}
+						className="font-joti bg-green-800 hover:bg-green-700 hover:scale-105 duration-300 text-white py-2 px-6 rounded-3xl shadow-md text-lg transition duration-300"
 					>
-						Take Quiz
+						Next
 					</button>
 					<button
 						onClick={handleRestart}
-						className="font-joti border-4 border-green-800 text-green-800 bg-transparent hover:bg-green-800 hover:text-white py-1 px-6 rounded-2xl shadow-md text-lg transition duration-300"
+						className="font-joti border-4 border-green-800 text-green-800 bg-transparent hover:bg-green-800 hover:text-white hover:scale-105 duration-300 py-1 px-6 rounded-3xl shadow-md text-lg transition duration-300"
 					>
 						Restart Learning
 					</button>
