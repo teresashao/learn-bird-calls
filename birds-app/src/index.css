@@ -7,6 +7,13 @@
   --font-nunito: "Nunito", "sans-serif";
 }
 
+/* Add this to set Nunito globally */
+@layer base {
+  html {
+    font-family: var(--font-nunito);
+  }
+}
+
 @layer utilities {
   @keyframes pulse-white {
 
