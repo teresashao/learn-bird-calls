@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
+import Gallery from "./Gallery"; // <--- import Gallery
 
-const BirdCard = ({ image1, image2, description, tip = "sample tip", funFact, closeCard, name, audio }) => {
-	const [activeTab, setActiveTab] = useState("tip"); // "tip" or "funFact"
+const BirdCard = ({ image1, image2, image3, description, tip = "sample tip", funFact, closeCard, name, audio }) => {
+	const [activeTab, setActiveTab] = useState("tip");
 	const audioRef = useRef(null);
 
 	const playAudio = () => {
@@ -30,56 +31,46 @@ const BirdCard = ({ image1, image2, description, tip = "sample tip", funFact, cl
 					<audio ref={audioRef} src={audio} />
 				</div>
 
-				{/* Main Content */}
 				<div className="flex gap-8 items-start mb-8">
-					{/* Images */}
-					<div className="relative w-100 h-80">
-						<img
-							src={image2}
-							alt={`${name} standing`}
-							className="absolute top-0 left-0 w-60 h-60 object-contain"
-						/>
-						<img
-							src={image1}
-							alt={`${name} flying`}
-							className="absolute top-32 left-40 w-50 h-50 object-contain"
-						/>
-					</div>
-
-
-					{/* Description */}
+					{/* Description and tabs */}
 					<div className="flex-1">
-						<p className="text-2xl mb-4">{description}</p>
+						<p className="text-xl mb-8">{description}</p>
+
+						{/* Tabs */}
+						<div className="flex gap-2 justify-start rounded-lg">
+							<button
+								onClick={() => setActiveTab("tip")}
+								className={`font-joti text-xl px-6 pb-3 py-3 text-center font-bold rounded-t-lg ${activeTab === "tip" ? "bg-sky-blue" : "bg-gray-100"}`}
+							>
+								TIP
+							</button>
+							<button
+								onClick={() => setActiveTab("funFact")}
+								className={`font-joti text-xl px-6 pb-3 py-3 text-center font-bold rounded-t-lg ${activeTab === "funFact" ? "bg-sky-blue" : "bg-gray-100"}`}
+							>
+								FUN FACT
+							</button>
+						</div>
+
+						{/* Tab Content */}
+						<div className="p-4 bg-sky-blue rounded-b-lg rounded-tr-lg text-gray-700 text-lg">
+							{activeTab === "tip" ? (
+								<p>{tip}</p>
+							) : (
+								<p>{funFact}</p>
+							)}
+						</div>
 					</div>
+
+					{/* New Gallery Section */}
+					<Gallery
+						image1={image1}
+						image2={image2}
+						image3={image3}
+						name={name}
+					/>
 				</div>
 
-				{/* Tabs */}
-				<div className="flex gap-2 justify-start rounded-lg">
-					<button
-						onClick={() => setActiveTab("tip")}
-						className={`font-joti text-xl px-6 pb-3 py-3 text-center font-bold rounded-t-lg ${activeTab === "tip" ? "bg-sky-blue" : "bg-gray-100"
-							}`}
-					>
-						TIP
-					</button>
-					<button
-						onClick={() => setActiveTab("funFact")}
-						className={`font-joti text-xl px-6 pb-3 py-3 text-center font-bold rounded-t-lg ${activeTab === "funFact" ? "bg-sky-blue" : "bg-gray-100"
-							}`}
-					>
-						FUN FACT
-					</button>
-				</div>
-
-
-				{/* Tab Content */}
-				<div className="p-4 bg-sky-blue rounded-b-lg rounded-tr-lg text-gray-700 text-lg">
-					{activeTab === "tip" ? (
-						<p><span className="font-bold">Tip:</span> {tip}</p>
-					) : (
-						<p><span className="font-bold">Fun Fact:</span> {funFact}</p>
-					)}
-				</div>
 			</div>
 		</div>
 	);

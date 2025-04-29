@@ -1,33 +1,51 @@
-import { useState } from "react"
-import BirdCard from "./BirdCard"
+import { useState } from "react";
+import BirdCard from "./BirdCard";
 
-const Bird = ({ name, image, image2, description = "sample description", funFact = "sample fun fact", style }) => {
-	const [showCard, setShowCard] = useState(false)
+const Bird = ({ id, name, image, image1, image2, image3, description = "sample description", funFact = "sample fun fact", tip = "sample tip", style, completed, refreshCompleted }) => {
+	const [showCard, setShowCard] = useState(false);
 
+	const handleClick = async () => {
+		setShowCard(true);
+
+		try {
+			await fetch("http://localhost:5001/complete_bird", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify({ bird_id: id }),
+			});
+			refreshCompleted();  // <-- Fetch new completed status immediately
+		} catch (error) {
+			console.error("Failed to send complete bird request:", error);
+		}
+	};
 
 	return (
 		<div>
 			<img
 				src={image}
 				alt={name}
-				className={`${style} animate-pulse-white`}
-				onClick={() => setShowCard(true)}
+				className={`${style} ${completed ? "opacity-68" : "animate-pulse-white"}`}
+				onClick={handleClick}
 			/>
 
 			{showCard && (
-				<div className="">
+				<div>
 					<BirdCard
 						name={name}
-						image1={image}
+						image1={image1}
 						image2={image2}
+						image3={image3}
 						description={description}
 						funFact={funFact}
-						closeCard={() => setShowCard(false)} />
+						tip={tip}
+						closeCard={() => setShowCard(false)}
+					/>
 				</div>
 			)}
 		</div>
+	);
+};
 
-	)
-}
-
-export default Bird
+export default Bird;

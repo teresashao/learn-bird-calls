@@ -1,5 +1,5 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function Home() {
 	const navigate = useNavigate();
@@ -8,7 +8,12 @@ function Home() {
 	const handleStartClick = async () => {
 		try {
 			setLoading(true);
-			const response = await fetch('http://localhost:5001/test');
+			const response = await fetch('http://localhost:5001/start', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			});
 			const data = await response.json();
 			console.log(data);
 
@@ -50,7 +55,7 @@ function Home() {
 				{loading ? "Connecting..." : "START"}
 			</button>
 		</div>
-	)
+	);
 }
 
 export default Home;
