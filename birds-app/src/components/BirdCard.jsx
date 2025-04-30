@@ -1,13 +1,29 @@
 import { useState, useRef } from "react";
-import Gallery from "./Gallery"; // <--- import Gallery
+import Gallery from "./Gallery";
 
-const BirdCard = ({ image1, image2, image3, description, tip = "sample tip", funFact, closeCard, name, audio }) => {
+const BirdCard = ({
+	image1, image2, image3,
+	description,
+	tip = "sample tip",
+	funFact,
+	closeCard,
+	name,
+	audio,
+	audio2
+}) => {
 	const [activeTab, setActiveTab] = useState("tip");
-	const audioRef = useRef(null);
+	const audioRef1 = useRef(null);
+	const audioRef2 = useRef(null);
 
-	const playAudio = () => {
-		if (audioRef.current) {
-			audioRef.current.play();
+	const playAudio1 = () => {
+		if (audioRef1.current) {
+			audioRef1.current.play();
+		}
+	};
+
+	const playAudio2 = () => {
+		if (audioRef2.current) {
+			audioRef2.current.play();
 		}
 	};
 
@@ -22,13 +38,25 @@ const BirdCard = ({ image1, image2, image3, description, tip = "sample tip", fun
 					&times;
 				</button>
 
-				{/* Title and Play Button */}
+				{/* Title and Play Buttons */}
 				<div className="font-joti flex items-center gap-4 mb-6">
 					<h1 className="text-5xl font-extrabold text-[#1a3d2f]">{name.toUpperCase()}</h1>
-					<button onClick={playAudio}>
-						<span className="text-3xl">🔊</span>
+
+					{/* First audio button */}
+					<button onClick={playAudio1}>
+						<span className="text-3xl text-[#1a3d2f]">&#40; 🔊 /</span>
 					</button>
-					<audio ref={audioRef} src={audio} />
+					<audio ref={audioRef1} src={audio} />
+
+					{/* Second audio button (only if audio2 is provided) */}
+					{audio2 && (
+						<>
+							<button onClick={playAudio2}>
+								<span className="text-3xl text-[#1a3d2f]"> 🔊 &#41;</span>
+							</button>
+							<audio ref={audioRef2} src={audio2} />
+						</>
+					)}
 				</div>
 
 				<div className="flex gap-8 items-start mb-8">
@@ -54,15 +82,11 @@ const BirdCard = ({ image1, image2, image3, description, tip = "sample tip", fun
 
 						{/* Tab Content */}
 						<div className="p-4 bg-sky-blue rounded-b-lg rounded-tr-lg text-gray-700 text-lg">
-							{activeTab === "tip" ? (
-								<p>{tip}</p>
-							) : (
-								<p>{funFact}</p>
-							)}
+							{activeTab === "tip" ? <p>{tip}</p> : <p>{funFact}</p>}
 						</div>
 					</div>
 
-					{/* New Gallery Section */}
+					{/* Gallery Section */}
 					<Gallery
 						image1={image1}
 						image2={image2}
@@ -70,7 +94,6 @@ const BirdCard = ({ image1, image2, image3, description, tip = "sample tip", fun
 						name={name}
 					/>
 				</div>
-
 			</div>
 		</div>
 	);

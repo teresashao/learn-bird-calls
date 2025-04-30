@@ -108,6 +108,8 @@ const Learn = () => {
 				tip="Some claim their call sounds like “Jay Jay Jay” or “Jeer Jeer Jeer”"
 				completed={completed[0]}
 				refreshCompleted={fetchCompleted}
+				audio1="/audio/Jay_learn1.mp3"
+				audio2="/audio/Jay_learn2.mp3"
 			/>
 
 			<Bird
@@ -124,6 +126,8 @@ const Learn = () => {
 				tip="Crows are well known for their “Caw” and “Ka-caw” calls"
 				completed={completed[1]}
 				refreshCompleted={fetchCompleted}
+				audio1="/audio/Crow_learn1.mp3"
+				audio2="/audio/Crow_learn2.mp3"
 			/>
 
 			<Bird
@@ -140,6 +144,8 @@ const Learn = () => {
 				style="absolute top-124 left-4/6 h-[15%] w-auto scale-x-[-1]"
 				completed={completed[2]}
 				refreshCompleted={fetchCompleted}
+				audio1="/audio/Cardinal_learn1.mp3"
+				audio2="/audio/Cardinal_learn2.mp3"
 			/>
 
 			<Bird
@@ -156,6 +162,8 @@ const Learn = () => {
 				style="absolute bottom-8 left-1/5 h-[15%] w-auto"
 				completed={completed[3]}
 				refreshCompleted={fetchCompleted}
+				audio1="/audio/Pigeon_learn1.mp3"
+				audio2="/audio/Pigeon_learn2.mp3"
 			/>
 
 			<Bird
@@ -172,6 +180,8 @@ const Learn = () => {
 				style="absolute top-100 left-2/5 h-[20%] w-auto"
 				completed={completed[4]}
 				refreshCompleted={fetchCompleted}
+				audio1="/audio/Robin_learn1.mp3"
+				audio2="/audio/Robin_learn2.wav"
 			/>
 
 			<Bird
@@ -188,6 +198,8 @@ const Learn = () => {
 				tip="Sparrows make chipping “chadics.” Their sounds don’t have melody."
 				completed={completed[5]}
 				refreshCompleted={fetchCompleted}
+				audio1="/audio/Sparrow_learn1.mp3"
+				audio2="/audio/Sparrow_learn2.mp3"
 			/>
 
 			<Bird
@@ -204,6 +216,8 @@ const Learn = () => {
 				style="absolute top-60 left-2/7 h-[20%] w-auto"
 				completed={completed[6]}
 				refreshCompleted={fetchCompleted}
+				audio1="/audio/Dove_learn1.wav"
+				audio2="/audio/Dove_learn2.mp3"
 			/>
 
 		</div>

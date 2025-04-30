@@ -1,7 +1,7 @@
 import { useState } from "react";
 import BirdCard from "./BirdCard";
 
-const Bird = ({ id, name, image, image1, image2, image3, description = "sample description", funFact = "sample fun fact", tip = "sample tip", style, completed, refreshCompleted }) => {
+const Bird = ({ id, name, image, image1, image2, image3, description = "sample description", funFact = "sample fun fact", tip = "sample tip", style, completed, refreshCompleted, audio1, audio2 }) => {
 	const [showCard, setShowCard] = useState(false);
 
 	const handleClick = async () => {
@@ -40,6 +40,8 @@ const Bird = ({ id, name, image, image1, image2, image3, description = "sample d
 						description={description}
 						funFact={funFact}
 						tip={tip}
+						audio={audio1}
+						audio2={audio2}
 						closeCard={() => setShowCard(false)}
 					/>
 				</div>
