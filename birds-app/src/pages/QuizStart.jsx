@@ -46,11 +46,15 @@ const QuizStart = () => {
                 <p className="mb-8 text-xl font-semibold font-nunito text-stone-600">
                   Time to test your knowledge. Can you identify all 7 calls?
                 </p>
-                <Link to="/quiz">
-                  <button className="font-joti hover:scale-105 shadow-lg text-2xl bg-green-800 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-3xl text-shadow-sm duration-300 cursor-pointer">
+                <button 
+                  onClick={() => {
+                  localStorage.removeItem("quizProgress");
+                  navigate("/quiz");
+                  }}
+                  className="font-joti hover:scale-105 shadow-lg text-2xl bg-green-800 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-3xl text-shadow-sm duration-300 cursor-pointer"
+                  >
                     Start Quiz
-                  </button>
-                </Link>
+                </button>
               </div>
               
           <p className="mt-15 mb-3 text-xl text-stone-600 font-nunito font-bold">Not Ready?</p>

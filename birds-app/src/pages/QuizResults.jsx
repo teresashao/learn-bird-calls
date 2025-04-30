@@ -89,7 +89,7 @@ const QuizResults = () => {
         </div>
         
       </div>
-    <div className=" grid grid-cols-[1fr_1fr_1fr] gap-4 px-6">
+    <div className=" grid md:grid-cols-[1fr_1fr_1fr] sm:grid-cols-[1fr_1fr] grid-cols-[1fr_1fr] gap-4 px-6 mt-10">
       <div className="relative">
         {/* Bird Image  */}
         <div className="absolute bottom-0  left-0 z-1">
