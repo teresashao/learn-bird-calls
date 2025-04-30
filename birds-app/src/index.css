@@ -31,3 +31,40 @@
     animation: pulse-white 2s infinite;
   }
 }
+
+@layer utilities {
+  .shine-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shine-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(120deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent 100%);
+    transform: skewX(-20deg);
+    animation: shine 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  @keyframes shine {
+    0% {
+      left: -100%;
+    }
+
+    50% {
+      left: 130%;
+    }
+
+    100% {
+      left: 130%;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+import { PlayCircle, PauseCircle } from "lucide-react";
 import Gallery from "./Gallery";
 
 const BirdCard = ({
@@ -12,18 +13,31 @@ const BirdCard = ({
 	audio2
 }) => {
 	const [activeTab, setActiveTab] = useState("tip");
+	const [isPlaying1, setIsPlaying1] = useState(false);
+	const [isPlaying2, setIsPlaying2] = useState(false);
+
 	const audioRef1 = useRef(null);
 	const audioRef2 = useRef(null);
 
-	const playAudio1 = () => {
+	const toggleAudio1 = () => {
 		if (audioRef1.current) {
-			audioRef1.current.play();
+			if (isPlaying1) {
+				audioRef1.current.pause();
+			} else {
+				audioRef1.current.play();
+			}
+			setIsPlaying1(!isPlaying1);
 		}
 	};
 
-	const playAudio2 = () => {
+	const toggleAudio2 = () => {
 		if (audioRef2.current) {
-			audioRef2.current.play();
+			if (isPlaying2) {
+				audioRef2.current.pause();
+			} else {
+				audioRef2.current.play();
+			}
+			setIsPlaying2(!isPlaying2);
 		}
 	};
 
@@ -42,23 +56,40 @@ const BirdCard = ({
 				<div className="font-joti flex items-center gap-4 mb-6">
 					<h1 className="text-5xl font-extrabold text-[#1a3d2f]">{name.toUpperCase()}</h1>
 
-					{/* First audio button */}
-					<button onClick={playAudio1}>
-						<span className="text-3xl text-[#1a3d2f]">&#40; 🔊 /</span>
+					{/* First Audio Button */}
+					<button
+						onClick={toggleAudio1}
+						className="shine-button transition-all duration-200 transform hover:scale-105 active:scale-95 
+								   bg-gradient-to-br from-[#b9d6e8] to-[#6fa5c5] text-white 
+								   shadow-md rounded-full p-2 border-2 border-white"
+					>
+						{isPlaying1 ? (
+							<PauseCircle size={32} className="text-[#1a3d2f]" />
+						) : (
+							<PlayCircle size={32} className="text-[#1a3d2f]" />
+						)}
 					</button>
-					<audio ref={audioRef1} src={audio} />
+					<audio ref={audioRef1} src={audio} onEnded={() => setIsPlaying1(false)} />
 
-					{/* Second audio button (only if audio2 is provided) */}
+					{/* Second Audio Button (if exists) */}
 					{audio2 && (
 						<>
-							<button onClick={playAudio2}>
-								<span className="text-3xl text-[#1a3d2f]"> 🔊 &#41;</span>
+							<button
+								onClick={toggleAudio2}
+								className="shine-button transition-all duration-200 transform hover:scale-105 active:scale-95 
+										   bg-gradient-to-br from-[#b9d6e8] to-[#6fa5c5] text-white 
+										   shadow-md rounded-full p-2 border-2 border-white"
+							>
+								{isPlaying2 ? (
+									<PauseCircle size={32} className="text-[#1a3d2f]" />
+								) : (
+									<PlayCircle size={32} className="text-[#1a3d2f]" />
+								)}
 							</button>
-							<audio ref={audioRef2} src={audio2} />
+							<audio ref={audioRef2} src={audio2} onEnded={() => setIsPlaying2(false)} />
 						</>
 					)}
 				</div>
-
 				<div className="flex gap-8 items-start mb-8">
 					{/* Description and tabs */}
 					<div className="flex-1">
