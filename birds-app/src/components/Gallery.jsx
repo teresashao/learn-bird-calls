@@ -17,7 +17,7 @@ const Gallery = ({ image1, image2, image3, name }) => {
 			{/* Left Arrow */}
 			<button
 				onClick={goToPrevious}
-				className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-green-800 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-green-700 transition"
+				className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-green-800 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-green-700 transition hover:scale-105 duration-300"
 			>
 				&lt;
 			</button>
@@ -34,7 +34,7 @@ const Gallery = ({ image1, image2, image3, name }) => {
 			{/* Right Arrow */}
 			<button
 				onClick={goToNext}
-				className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-green-800 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-green-700 transition"
+				className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-green-800 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-green-700 transition hover:scale-105 duration-300"
 			>
 				&gt;
 			</button>
