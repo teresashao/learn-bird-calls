@@ -89,11 +89,8 @@ const Quiz = () => {
 
    
 
-    <div className="grid grid-cols-[1fr_4fr_1fr] gap-4 px-6 flex-grow">
+    <div className="grid gap-4 px-6 flex-grow items-center justify-center">
       
-      {/* Left Column */}
-      <div>
-      </div>
       
       {/* Center Column */}
       <div className="p-5 mx-auto text-center rounded-xl max-w-4xl w-full">
@@ -106,7 +103,7 @@ const Quiz = () => {
         <br></br>
 
         <div className="flex flex-wrap justify-center">
-          <audio controls src={question.audio} className="mx-10 w-140 mb-4" />
+          <audio controls src={question.audio} className="mx-10 w-140 sm:100 mb-4" />
           <button
             onClick={handleNext}
             disabled={!showFeedback}
@@ -130,10 +127,6 @@ const Quiz = () => {
     
       </div>
 
-     
-    {/* Right Column */}
-    <div className="m-6 mt-36 text-center">
-      </div>
     
     </div>
     
