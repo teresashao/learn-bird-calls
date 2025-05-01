@@ -1,7 +1,23 @@
 import { useState } from "react";
 import BirdCard from "./BirdCard";
 
-const Bird = ({ id, name, image, image1, image2, image3, description = "sample description", funFact = "sample fun fact", tip = "sample tip", style, completed, refreshCompleted, audio1, audio2 }) => {
+const Bird = ({
+	id,
+	name,
+	image,
+	image1,
+	image2,
+	image3,
+	description = "sample description",
+	funFact = "sample fun fact",
+	tip = "sample tip",
+	style,
+	customStyle = {},
+	completed,
+	refreshCompleted,
+	audio1,
+	audio2
+}) => {
 	const [showCard, setShowCard] = useState(false);
 
 	const handleClick = async () => {
@@ -15,7 +31,7 @@ const Bird = ({ id, name, image, image1, image2, image3, description = "sample d
 				},
 				body: JSON.stringify({ bird_id: id }),
 			});
-			refreshCompleted();  // <-- Fetch new completed status immediately
+			refreshCompleted(); // Refresh completed status
 		} catch (error) {
 			console.error("Failed to send complete bird request:", error);
 		}
@@ -26,7 +42,13 @@ const Bird = ({ id, name, image, image1, image2, image3, description = "sample d
 			<img
 				src={image}
 				alt={name}
-				className={`${style} ${completed ? "opacity-68" : "animate-pulse-white"}`}
+				className={`${style} ${completed ? "opacity-70" : "animate-pulse-white"} cursor-pointer z-10`}
+				style={{
+					...customStyle,
+					position: "absolute",
+					height: "20%",
+					width: "auto",
+				}}
 				onClick={handleClick}
 			/>
 

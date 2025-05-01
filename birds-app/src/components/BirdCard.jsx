@@ -43,7 +43,8 @@ const BirdCard = ({
 
 	return (
 		<div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-sm">
-			<div className="relative w-[80%] max-w-4xl bg-white rounded-3xl p-8 shadow-lg text-black flex flex-col border-[12px] border-[#1a3d2f]">
+			{/* Scrollable content container */}
+			<div className="relative w-[90%] max-w-4xl sm:h-[70%] lg:h-[60%] h-[90%] max-h-screen overflow-y-auto bg-white rounded-3xl p-8 shadow-lg text-black flex flex-col border-[12px] border-[#1a3d2f]">
 				{/* X button */}
 				<button
 					onClick={closeCard}
@@ -53,7 +54,7 @@ const BirdCard = ({
 				</button>
 
 				{/* Title and Play Buttons */}
-				<div className="font-joti flex items-center gap-4 mb-6">
+				<div className="font-joti flex flex-wrap items-center gap-4 mb-6 justify-center md:justify-start text-center mt-12 md:mt-0">
 					<h1 className="text-5xl font-extrabold text-[#1a3d2f]">{name.toUpperCase()}</h1>
 
 					{/* First Audio Button */}
@@ -71,7 +72,7 @@ const BirdCard = ({
 					</button>
 					<audio ref={audioRef1} src={audio} onEnded={() => setIsPlaying1(false)} />
 
-					{/* Second Audio Button (if exists) */}
+					{/* Second Audio Button */}
 					{audio2 && (
 						<>
 							<button
@@ -90,7 +91,9 @@ const BirdCard = ({
 						</>
 					)}
 				</div>
-				<div className="flex gap-8 items-start mb-8">
+
+				{/* Description + Tabs + Gallery */}
+				<div className="flex flex-col md:flex-row gap-8 items-start mb-8">
 					{/* Description and tabs */}
 					<div className="flex-1">
 						<p className="text-xl mb-8">{description}</p>

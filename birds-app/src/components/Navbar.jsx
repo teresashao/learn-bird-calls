@@ -5,7 +5,7 @@ const Navbar = () => {
 		<div className="bg-sky-blue sticky top-0 z-50">
 			<div className="flex justify-between items-center p-4">
 				{/* Left side */}
-				<Link to="/" className="font-semibold hover:underline">HOME</Link>
+				<Link to="/home" className="font-semibold hover:underline">HOME</Link>
 
 				{/* Right side */}
 				<div className="flex gap-8 pr-8 font-semibold">

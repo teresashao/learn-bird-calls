@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
-function Home() {
+function Landing() {
 	const navigate = useNavigate();
 	const [loading, setLoading] = useState(false);
 
@@ -35,8 +35,10 @@ function Home() {
 			style={{ backgroundImage: "url('/background1.png')" }}
 		>
 
-			<h1 className="font-joti text-[120px] text-center mx-auto leading-[1]">WHO'S THAT</h1>
-			<h1 className="font-joti text-[120px] text-center mx-auto leading-[1]">CHIRP?</h1>
+			<div>
+				<h1 className="font-joti text-[120px] text-center mx-auto leading-[1]">WHO'S THAT</h1>
+				<h1 className="font-joti text-[120px] text-center mx-auto leading-[1]">CHIRP?</h1>
+			</div>
 			<p className="font-joti w-[60%] text-[46px] mx-auto text-center text-lg pb-12 mt-14">
 				Learn NYC Bird Calls
 			</p>
@@ -52,4 +54,4 @@ function Home() {
 	);
 }
 
-export default Home;
+export default Landing;
