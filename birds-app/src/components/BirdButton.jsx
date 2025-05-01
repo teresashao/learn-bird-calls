@@ -7,16 +7,27 @@ const BirdButton = ({ image, audio, top, left, name }) => {
   const [hovered, setHovered] = useState(false);
 
   const handleClick = () => {
-    if (currentlyPlayingAudio && currentlyPlayingAudio !== audioRef.current) {
+    const currentAudio = audioRef.current;
+
+    if (!currentAudio) return;
+
+    // If this button's audio is already playing, pause it
+    if (!currentAudio.paused) {
+      currentAudio.pause();
+      currentlyPlayingAudio = null;
+      return;
+    }
+
+    // Pause and reset any other playing audio
+    if (currentlyPlayingAudio && currentlyPlayingAudio !== currentAudio) {
       currentlyPlayingAudio.pause();
       currentlyPlayingAudio.currentTime = 0;
     }
 
-    if (audioRef.current) {
-      audioRef.current.currentTime = 0;
-      audioRef.current.play();
-      currentlyPlayingAudio = audioRef.current;
-    }
+    // Play this button's audio
+    currentAudio.currentTime = 0;
+    currentAudio.play();
+    currentlyPlayingAudio = currentAudio;
   };
 
   return (
