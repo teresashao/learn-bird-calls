@@ -162,7 +162,7 @@ const Learn = () => {
 					image3="/gallery/pigeon/pigeon3.jpeg"
 					style="absolute"
 					customStyle={{ top: '75%', left: '10%' }}
-					description="Starting out easy, if you live in NYC, you’ve probably heard one of these guys before.
+					description="If you live in NYC, you’ve probably heard one of these guys before.
 					Rock pigeon calls are low coos. Prolonged cooing is usually used to attract a mate while shorter grunts are alarm calls."
 					funFact="It is estimated that pigeons have lived among humans for at least 5,000 years!"
 					tip="Pigeons make a throaty cooing noise."
